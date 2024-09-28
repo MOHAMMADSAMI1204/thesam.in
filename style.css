@@ -11,18 +11,22 @@
 body {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(to bottom, #958af7 23%, #3345e9 95%);
+    background: linear-gradient(to bottom, #b1a9f8 23%, #3345e9 95%);
     display: flex;
     flex-direction: column;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 0.5rem 1rem;
     position: relative;
     z-index: 10;
+}
+
+.logo {
+    margin-left: 2rem;
 }
 
 .logo a {
@@ -41,15 +45,19 @@ body {
 .navbar {
     display: flex;
     align-items: center;
+    margin-left: auto; 
+    margin-right: 2rem; 
 }
 
 .nav-links {
     list-style: none;
     display: flex;
+    margin-left: 0; 
+    gap: 1rem; 
 }
 
 .nav-links li {
-    margin: 0 0.5rem;
+    margin: 0; 
 }
 
 .nav-links a {
@@ -114,15 +122,15 @@ h3 {
     box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5); 
 }
 
-.FOLLOW {
+.INSTAGRAM {
     background: linear-gradient(145deg, #00a2ff, #0952ee);
 }
 
-.SUBSCRIBE {
+.YOUTUBE {
     background: linear-gradient(145deg, #f56767, #ff0101);
 }
 
-.JOIN {
+.DISCORD {
     background: linear-gradient(145deg, #00c6ff, #0072ff);
 }
 
@@ -154,44 +162,42 @@ h3 {
     }
 
     .content {
-        padding: 2rem; /* Reduce padding for smaller screens */
+        padding: 2rem; 
     }
 
     h2 {
-        font-size: 2rem; /* Adjust heading size */
+        font-size: 2rem; 
     }
 
     p, h3 {
-        font-size: 1.1rem; /* Adjust paragraph and h3 size */
+        font-size: 1.1rem; 
     }
 
     .buttons {
-        flex-direction: column; /* Stack buttons vertically */
+        flex-direction: column; 
     }
 
     .buttons a {
-        width: 100%; /* Full width buttons */
-        text-align: center; /* Center text */
+        width: 100%; 
+        text-align: center; 
     }
 }
 
 @media (max-width: 480px) {
     .logo a {
-        font-size: 2.5rem; /* Smaller logo font */
+        font-size: 2.5rem; 
     }
 
     h2 {
-        font-size: 1.8rem; /* Smaller heading */
+        font-size: 1.8rem; 
     }
 
     .nav-links a {
-        font-size: 0.9rem; /* Smaller nav links */
-        padding: 0.5rem 1rem; /* Smaller padding */
+        font-size: 0.9rem; 
+        padding: 0.5rem 1rem; 
     }
 
     .buttons a {
-        font-size: 1rem; /* Smaller button text */
+        font-size: 1rem; 
     }
 }
-
-
