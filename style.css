@@ -130,3 +130,68 @@ h3 {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
+
+/* Additional Styles for Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-end;
+        gap: 7%;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .content {
+        padding: 2rem; /* Reduce padding for smaller screens */
+    }
+
+    h2 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+
+    p, h3 {
+        font-size: 1.1rem; /* Adjust paragraph and h3 size */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .buttons a {
+        width: 100%; /* Full width buttons */
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo a {
+        font-size: 2.5rem; /* Smaller logo font */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Smaller nav links */
+        padding: 0.5rem 1rem; /* Smaller padding */
+    }
+
+    .buttons a {
+        font-size: 1rem; /* Smaller button text */
+    }
+}
+
+
