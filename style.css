@@ -139,6 +139,18 @@ h3 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
+.footer {
+    width: 100%;
+    color: #ecf0f1; 
+    text-align: center;
+    padding: 15px 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 17px; 
+}
+
 /* Additional Styles for Responsiveness */
 @media (max-width: 768px) {
     .header {
