@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: rgb(0, 0, 0); /* Set background color to black */
+}
+
+/* Logo on the left */
+.logo {
+    position: fixed;
+    top: 20px; /* Vertical position */
+    left: 20px; /* Left side */
+    font-size: 36px; /* Logo size */
+    color: white; /* Logo color */
+    z-index: 2; /* Ensure it sits above other elements */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    margin-top: 20px; /* Space above the nav bar */
+    z-index: 2; /* Ensure it sits above other elements */
+    padding-right: 20px; /* Add some right padding */
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Make it full width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+}
+
+.nav-menu {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 30px; /* Space between navigation items */
+}
+
+.nav-menu li {
+    list-style: none; /* Remove bullets */
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(145deg, #1f2833, #0b0c10);
+    color: #c5c6c7;
+    text-decoration: none; /* Remove underline */
+    padding: 15px 20px; /* Padding for larger buttons */
+    border-radius: 20px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.nav-menu a:hover {
+    transform: translateY(-10px) translateZ(1opx) rotateX(3deg); /* Lift and tilt effect on hover */
+    box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.507), 
+                10px 10px 12px rgba(255, 255, 255, 0.356); /* Deepen shadow on hover */
+}
+
+.footer {
+    position: fixed; /* Fixes the footer to the bottom of the viewport */
+    bottom: -3%; /* Aligns the footer to the bottom */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts the positioning */
+    text-align: center;
+    font-size: 5px; /* Font size */
+    color: #c5c6c7; /* Light gray */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    z-index: 10; /* Ensures it appears above other content */
+    width: 100%; /* Makes footer full width */
+    padding: 10px 0; /* Optional: adds padding to the footer */
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place behind other content */
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+span,
+p {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 28px; /* Smaller logo size for mobile */
+    }
+
+    .nav-menu {
+        flex-direction: column; /* Stack navigation items */
+        gap: 15px; /* Reduce gap */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px; /* Further reduce logo size */
+    }
+
+    .nav-menu {
+        gap: 10px; /* Further reduce gap */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    span {
+        font-size: 1rem;
+    }
+}
+

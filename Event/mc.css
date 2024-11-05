@@ -1,0 +1,92 @@
+.minecraft {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin: 40px auto; /* Increased margin for more space */
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.582);
+    box-shadow: 0 4px 20px rgba(104, 103, 103, 0.555);
+    transition: transform 0.3s;
+    width: 500px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Removed border-collapse, not applicable here */
+    margin-top: 10%;
+    line-height: 200%;
+}
+
+
+
+/* Conversion Table Styles */
+.conversion-table {
+    width: 500px;
+    margin: 40px auto;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.582);
+    box-shadow: 0 4px 20px rgba(104, 103, 103, 0.555);
+    display: flex; /* Enable flexbox for table */
+    flex-direction: column; /* Column layout for rows */
+    align-items: center; /* Center table content */
+}
+
+/* Row Styles */
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 8px;
+    transition: background 0.3s;
+    width: 100%; /* Ensure rows take full width */
+}
+
+.table-row:nth-child(even) {
+    background: rgba(75, 74, 74, 0.7);
+}
+
+.table-row:nth-child(odd) {
+    background: rgba(30, 30, 30, 0.650);
+}
+
+
+.table-row span {
+    color: #c5c6c7;
+    font-size: 18px;
+    flex: 1;
+    text-align: center;
+}
+
+/* Last Row Styles */
+.table-row:last-child {
+    font-weight: bold;
+    background: rgba(30, 30, 30, 0.650);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .minecraft {
+        width: 90%;
+        margin-top: 30%;
+    }
+
+
+
+    .conversion-table {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .minecraft {
+        width: 90%;
+    }
+
+
+}

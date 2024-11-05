@@ -1,0 +1,42 @@
+ <div class="form">
+        <div class="fill">
+            <h2>Form</h2>
+            <input type="text" placeholder="YouTube Chat Username" name="youtube-username" required />
+            <input type="text" placeholder="Minecraft Username" name="minecraft-username" required />
+            <input type="text" placeholder="Enter the ( TS Coins ) YouTube Points" name="youtube-coins" required />
+            <select id="edition" name="edition" required>
+                <option value="" disabled selected>Select Minecraft Edition</option>
+                <option value="Java">Java</option>
+                <option value="Pocket">Pocket</option>
+                <option value="Bedrock">Bedrock</option>
+            </select>
+            <select id="edition" name="edition" required>
+                <option value="" disabled selected>Select </option>
+                <option value="Whitelist">Whitlist</option>
+                <option value="Coise">Coise</option>
+            </select>
+            <input type="file" name="profile-image" accept="image/*" required />
+            <button type="Submit">SUBMIT</button>
+        </div>
+    </div>
+
+
+* Responsive adjustments */
+@media (min-width: 768px) {
+    .form {
+        width: 400px;
+    }
+
+    .form input, .form select, .form button {
+        width: 300px;
+    }
+}
+@media (max-width: 480px) {
+    .form {
+        width: 400px;
+    }
+
+    .form input, .form select, .form button {
+        width: 200px;
+    }
+}

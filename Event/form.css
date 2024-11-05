@@ -1,0 +1,118 @@
+/* Main container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50%;
+
+}
+
+/* Form container styling */
+.form-container {
+    background: rgba(0, 0, 0, 0.582);
+    box-shadow: 0 4px 20px rgba(104, 103, 103, 0.555);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+/* Input fields styling */
+.form-container input[type="text"],
+.form-container input[type="file"],
+.form-container select {
+    width: 60%;
+    padding: 8px;
+    margin: 5px 3px;
+    border: 2px solid #1fb62b;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.form-container input[type="file"] {
+    background-color: white;
+    
+}
+
+/* Base Button Style */
+.form-container button[type="SUBMIT"] {
+    width: 40%; 
+    padding: 10px 15px; /* Padding for the button */
+    margin: 11px 0;
+    background-color: #4CAF50; /* Solid green background */
+    color: #fff; /* White text color */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold font */
+    border: none; /* No border */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and transform */
+}
+
+/* Hover Effects */
+.form-container button[type="SUBMIT"]:hover {
+    border: 2px solid #ffffff;
+    background-color: #228027; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Active Effect */
+.form-container button[type="SUBMIT"]:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inner shadow for pressed effect */
+}
+
+/* Clicked State */
+.form-container button[type="SUBMIT"].clicked {
+    background-color: #a9a9a9; /* Gray background after click */
+    pointer-events: none; /* Prevent further clicks */
+}
+
+.form-container button[type="SUBMIT"].button-disabled {
+    background-color: gray;
+    color: white;
+}
+
+
+
+.form-container button[type="SUBMIT"].result {
+    transition: transform 0.5s ease;
+    transform: translateY(100%);
+}
+
+.form-container button[type="SUBMIT"].result.show {
+    display: block;
+    transform: translateY(0);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .form-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+        max-width: 80%;
+    }
+    
+.form-container input[type="text"],
+.form-container input[type="file"],
+.form-container select {
+    width: 80%;
+    padding: 8px;
+    margin: 5px 3px;
+
+}
+p {
+    font-size: 120%;
+}
+}
