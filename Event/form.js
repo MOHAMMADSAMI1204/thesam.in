@@ -52,7 +52,7 @@ document.querySelector(".form-container.sign-in form").addEventListener("submit"
 
 // Update the sendToDiscord function
 function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, selectValue) {
-    const webhookURL = "https://discord.com/api/webhooks/1297906944157290506/AZPmNZN7_ssEsFw4bopdub3Wcfzdok5c35_LgaEhOMNS0bo1We_3mKimgIMKZAxn6G7b";
+    const webhookURL = "https://discord.com/api/webhooks/1312804695185686658/iv-tCoqFL0FB3WetRG7GPfNmMzpNe17m1S5YNDQiJ5R-XPcvnn3jiMprF1wm4qGM_Ilj";
 
     const title = selectValue === "Whitelist" ? "Whitelist Request" : "Coins Request";
 
