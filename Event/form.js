@@ -1,18 +1,25 @@
 document.querySelector(".form-container.sign-in form").addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission
 
     const edition = document.getElementById("edition").value;
     const selectValue = document.querySelector("select[name='Select']").value; // Get the selected value
     const usernameField = document.querySelector("input[name='minecraft-username']");
     const youtubeUsername = document.querySelector("input[name='youtube-username']").value;
+    const youtubeCoins = document.querySelector("input[name='youtube-coins']").value; // Get YouTube coins value
     const imageUpload = document.querySelector("input[name='profile-image']").files[0];
     const submitButton = document.querySelector(".form-container.sign-in button");
     const messageDiv = document.createElement("div");
     messageDiv.id = "message";
     document.body.appendChild(messageDiv);
 
+    // Disable the submit button immediately to prevent multiple clicks
+    submitButton.disabled = true;
+    submitButton.style.backgroundColor = "grey"; // Change button color to indicate it's disabled
+    submitButton.innerText = "Submited"; // Optional: change button text to "Submitting..."
+
     let formattedUsername = usernameField.value;
 
+    // Format Minecraft username based on edition
     if (edition === "Pocket" || edition === "Bedrock") {
         if (!formattedUsername.startsWith(".")) {
             formattedUsername = `.${formattedUsername}`;
@@ -40,19 +47,41 @@ document.querySelector(".form-container.sign-in form").addEventListener("submit"
                 const formData = new FormData();
                 formData.append("file", blob, "image.png");
 
-                sendToDiscord(formData, formattedUsername, youtubeUsername, edition, selectValue); // Pass selectValue
+                sendToDiscord(formData, formattedUsername, youtubeUsername, youtubeCoins, edition, selectValue); // Pass youtubeCoins as well
             }, "image/png");
         };
     };
     reader.readAsDataURL(imageUpload);
 
-    submitButton.disabled = true;
-    submitButton.style.backgroundColor = "grey";
+    // Optionally, disable the submit button for a longer time (e.g., 5 minutes) after the form submission
+    setTimeout(function () {
+        submitButton.disabled = false;
+        submitButton.style.backgroundColor = "#4CAF50"; // Re-enable the button and reset color
+        submitButton.innerText = "Submit"; // Reset button text
+    }, 300000); // 5 minutes in milliseconds
 });
 
-// Update the sendToDiscord function
-function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, selectValue) {
-    const webhookURL = "https://discord.com/api/webhooks/1312804695185686658/iv-tCoqFL0FB3WetRG7GPfNmMzpNe17m1S5YNDQiJ5R-XPcvnn3jiMprF1wm4qGM_Ilj";
+// Function to display all the submitted details with the server info
+function displaySubmissionDetails(formattedUsername, youtubeUsername, youtubeCoins, edition, selectValue) {
+    const resultDiv = document.querySelector('.result');
+    const resultMessage = `
+        <h3>Submission Successful</h3>
+        <div>
+            <p><strong>YouTube Username:</strong> ${youtubeUsername}</p>
+            <p><strong>Minecraft Username:</strong> ${formattedUsername}</p>
+            <p><strong>Minecraft Edition:</strong> ${edition}</p>
+            <p><strong>YouTube Coins:</strong> ${youtubeCoins}</p>
+            <p><strong>Server IP:</strong> mc.thesam.in</p>
+            <p><strong>Server Port:</strong> 25778</p>
+        </div>
+    `;
+    resultDiv.innerHTML = resultMessage;
+    resultDiv.classList.add('show'); // Make the result visible
+}
+
+// Update the sendToDiscord function to include youtubeCoins
+function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, youtubeCoins, edition, selectValue) {
+    const webhookURL = "https://discord.com/api/webhooks/1313123502282506395/0WaZnt0wcJNuwCpA3BucDJXS8Dekm0XjCvp172mfr7OnSk3fsmmxio2TpTwgKWbEpwnV";
 
     const title = selectValue === "Whitelist" ? "Whitelist Request" : "Coins Request";
 
@@ -64,8 +93,8 @@ function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, s
                 fields: [
                     { name: "**Minecraft Edition**", value: edition, inline: false },
                     { name: "**Minecraft Username**", value: formattedUsername, inline: false },
-                    { name: "**YouTube Username**", value: youtubeUsername, inline: false }
-                    
+                    { name: "**YouTube Username**", value: youtubeUsername, inline: false },
+                    { name: "**YouTube Coins**", value: youtubeCoins, inline: false } // Add the YouTube Coins to the embed
                 ],
                 color: 117505,
                 image: {
@@ -73,7 +102,6 @@ function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, s
                 }
             }
         ],
-
     };
 
     fetch(webhookURL, {
@@ -96,7 +124,7 @@ function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, s
             if (!response.ok) {
                 throw new Error("Failed to send image to Discord");
             }
-            displayEmbedOnWebsite(youtubeUsername, formattedUsername, edition);
+            displayEmbedOnWebsite(youtubeUsername, formattedUsername, edition, youtubeCoins);
         })
         .catch(error => {
             document.getElementById("message").innerHTML = "Error: " + error.message;
@@ -106,44 +134,18 @@ function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, edition, s
         });
 }
 
-// Select the form and result display element
-const form = document.getElementById('form-container.sign-in form');
-const resultDiv = document.querySelector('.result');
-const button = form.querySelector('button[type="submit"]');
-
-// Add a submit event listener to the form
-form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Disable the button to prevent multiple clicks
-    button.disabled = true;
-
-    // Change button color to gray
-    button.classList.add('button-disabled');
-
-    // Collect form data
-    const formData = new FormData(form);
-    const details = Array.from(formData.entries())
-        .map(([key, value]) => `${key}: ${value}`)
-        .join('<br>');
-
-    // Show results after a 10-second delay
-    setTimeout(() => {
-        // Clear the form fields
-        form.reset();
-
-        // Prepare result content
-        const resultMessage = Math.random() > 0.5 ? 'Successful' : 'Failed';
-        resultDiv.innerHTML = `
-            <h3>Submission ${resultMessage}</h3>
-            <div>${details}</div>
-        `;
-
-        // Display the results with a slide-up effect
-        resultDiv.classList.add('show');
-
-        // Re-enable the button and reset color
-        button.disabled = false;
-        button.classList.remove('button-disabled');
-    }, 50000); // 10 seconds delay
-});
+// Add a function to display the result on the website
+function displayEmbedOnWebsite(youtubeUsername, formattedUsername, edition, youtubeCoins) {
+    const resultDiv = document.querySelector('.result');
+    const resultMessage = `
+        <h3>Submission Successful</h3>
+        <div>
+            <p>YouTube Username: ${youtubeUsername}</p>
+            <p>Minecraft Username: ${formattedUsername}</p>
+            <p>Edition: ${edition}</p>
+            <p>YouTube Coins: ${youtubeCoins}</p>
+        </div>
+    `;
+    resultDiv.innerHTML = resultMessage;
+    resultDiv.classList.add('show');
+}
