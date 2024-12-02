@@ -81,7 +81,7 @@ function displaySubmissionDetails(formattedUsername, youtubeUsername, youtubeCoi
 
 // Update the sendToDiscord function to include youtubeCoins
 function sendToDiscord(imageBlob, formattedUsername, youtubeUsername, youtubeCoins, edition, selectValue) {
-    const webhookURL = "https://discord.com/api/webhooks/1313123502282506395/0WaZnt0wcJNuwCpA3BucDJXS8Dekm0XjCvp172mfr7OnSk3fsmmxio2TpTwgKWbEpwnV";
+    const webhookURL = "https://discord.com/api/webhooks/1312804695185686658/iv-tCoqFL0FB3WetRG7GPfNmMzpNe17m1S5YNDQiJ5R-XPcvnn3jiMprF1wm4qGM_Ilj";
 
     const title = selectValue === "Whitelist" ? "Whitelist Request" : "Coins Request";
 
