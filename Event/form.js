@@ -14,7 +14,10 @@ document.querySelector(".form-container.sign-in form").addEventListener("submit"
 
     // Disable the submit button immediately to prevent multiple clicks
     submitButton.disabled = true;
+
+    // JSS approach to modify the button's appearance
     submitButton.style.backgroundColor = "grey"; // Change button color to indicate it's disabled
+    submitButton.style.cursor = "not-allowed"; // Change cursor to not-allowed
     submitButton.innerText = "Submited"; // Optional: change button text to "Submitting..."
 
     let formattedUsername = usernameField.value;
@@ -57,6 +60,7 @@ document.querySelector(".form-container.sign-in form").addEventListener("submit"
     setTimeout(function () {
         submitButton.disabled = false;
         submitButton.style.backgroundColor = "#4CAF50"; // Re-enable the button and reset color
+        submitButton.style.cursor = "pointer"; // Reset cursor to pointer
         submitButton.innerText = "Submit"; // Reset button text
     }, 300000); // 5 minutes in milliseconds
 });
