@@ -1,94 +1,58 @@
-/* Reset some basic styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: black; /* Set background color to black */
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
-/* Logo on the left */
 .logo {
-    position: fixed;
-    top: 20px; /* Vertical position */
-    left: 20px; /* Left side */
-    font-size: 36px; /* Logo size */
-    color: white; /* Logo color */
-    z-index: 2; /* Ensure it sits above other elements */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 36px;
+  z-index: 2;
 }
 
-/* Navigation Bar Styles */
 .navbar {
-    display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    margin-top: 20px; /* Space above the nav bar */
-    z-index: 2; /* Ensure it sits above other elements */
-    padding-right: 20px; /* Add some right padding */
-    position: fixed; /* Fix the navbar at the top */
-    top: 0; /* Position it at the top */
-    width: 100%; /* Make it full width */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
-
 
 .nav-menu {
-    display: flex; /* Use flexbox for horizontal alignment */
-    gap: 30px; /* Space between navigation items */
+  display: flex;
+  gap: 30px;
 }
 
 .nav-menu li {
-    list-style: none; /* Remove bullets */
+  list-style: none;
 }
 
 .nav-menu a {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(145deg, #1f2833, #0b0c10);
-    color: #c5c6c7;
-    text-decoration: none; /* Remove underline */
-    padding: 15px 20px; /* Padding for larger buttons */
-    border-radius: 20px; /* Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-}
-
-.nav-menu a:hover {
-    transform: translateY(-10px) translateZ(1opx) rotateX(3deg); /* Lift and tilt effect on hover */
-    box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.507), 
-                10px 10px 12px rgba(255, 255, 255, 0.356); /* Deepen shadow on hover */
+  background: linear-gradient(145deg, #1f2833, #0b0c10);
+  color: #c5c6c7;
+  padding: 15px 20px;
+  border-radius: 20px;
+  text-decoration: none;
 }
 
 #particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place behind other content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
-
-
-/* Footer Styles */
-.footer {
-    position: fixed; /* Fixes the footer to the bottom of the viewport */
-    bottom: -3%; /* Aligns the footer to the bottom */
-    left: 50%; /* Centers horizontally */
-    transform: translateX(-50%); /* Adjusts the positioning */
-    text-align: center;
-    font-size: 5px; /* Font size */
-    color: #c5c6c7; /* Light gray */
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    z-index: 10; /* Ensures it appears above other content */
-    width: 100%; /* Makes footer full width */
-    padding: 10px 0; /* Optional: adds padding to the footer */
-}
-
-
-
-/* Content */
 .content {
     text-align: center;
     margin-top: 150px; /* Space from top */
@@ -120,7 +84,6 @@ p {
     font-size: 18px;
     margin: 20px 0;
 }
-
 
 /* Button Icon */
 .icon {
@@ -188,96 +151,87 @@ p {
     transform: translateZ(10px);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 28px; /* Smaller logo size for mobile */
-    }
-
-    .nav-menu {
-        flex-direction: column; /* Stack navigation items */
-        gap: 15px; /* Reduce gap */
-    }
-
-    .content {
-        margin-top: q50px; 
-    }
-
-    h1 {
-        font-size: 2.5rem; /* Smaller heading */
-    }
-
-    h2 {
-        font-size: 1.5rem; /* Smaller subheading */
-    }
-
-    p {
-        font-size: 1.2rem; /* Smaller paragraph text */
-    }
-
-    .cover-container {
-        height: 300px; /* Adjust coverflow height */
-    }
-
-    .coverflow-slide img {
-        width: 200px; /* Decrease image size */
-        height: 200px; /* Decrease image height */
-    }
-
-    .social-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        gap: 15px; /* Reduced gap for mobile */
-    }
-
-    .container {
-        width: 90%;
-    }
+/* Button Icon */
+.icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    margin-right: 8px; /* Space between icon and text */
 }
 
-@media (max-width: 480px) {
-    .logo {
-        font-size: 24px; /* Further reduce logo size */
-    }
+/* Minecreft Buttons */
+.Minecreft-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center align items vertically */
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
 
-    .nav-menu {
-        gap: 10px; /* Further reduce gap */
-    }
+.Minecreft-button {
+    display: flex;
+    align-items: center; /* Center icon and text */
+    background: linear-gradient(145deg, #1f2833, #0b0c10);
+    color: #c5c6c7;
+    text-decoration: none;
+    padding: 15px; /* Adjust padding to keep it uniform */
+    width: 150px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    border-radius: 20px; /* More rounded for a softer look */
+    transform: translateZ(0px); /* Lift buttons in 3D space */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    justify-content: center; /* Center text and icon within the button */
+}
 
-    .content {
-        margin-top: 150px; /* Adjust top margin */
-    }
+.Minecreft-button:hover {
+    transform: translateY(-10px) translateZ(1opx) rotateX(3deg); /* Lift and tilt effect on hover */
+    box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.507), 
+                10px 10px 12px rgba(255, 255, 255, 0.356); /* Deepen shadow on hover */
+}
 
-    h1 {
-        font-size: 2rem; /* Smaller heading */
-    }
+.icon {
+    width: 28px; /* Slightly larger icon size */
+    height: 28px;
+    margin-right: 10px; /* Increased margin for spacing */
+}
 
-    h2 {
-        font-size: 1.25rem; /* Smaller subheading */
-    }
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  font-size: 10px;
+  color: #c5c6c7;
+}
 
-    p {
-        font-size: 1rem; /* Smaller paragraph text */
-    }
+/* Popup Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-    .cover-container {
-        height: 200px; /* Adjust coverflow height */
-    }
+.modal-content {
+  background: #1f2833;
+  margin: 15% auto;
+  padding: 40px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+}
 
-    .coverflow-slide img {
-        width: 150px; /* Further decrease image size */
-        height: 150px; /* Further decrease image height */
-    }
-
-    .social-buttons {
-        flex-direction: column; /* Stack social buttons */
-        gap: 10px; /* Reduce gap */
-    }
-
-    .social-button {
-        padding: 10px; /* Adjust padding for smaller screens */
-        font-size: 14px; /* Adjust font size for better readability */
-    }
-    .container {
-        width: 90%;
-    }
+.close {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
